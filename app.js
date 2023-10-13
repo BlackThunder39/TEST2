@@ -49,12 +49,12 @@ const reset = function (){
     p1Display.textContent = p1Score;
     p2Display.textContent = p2Score;
     resultDisplay.innerText="MATCH IS GOING ON !!!";
-    p1Button.classList.toggle('disabled');
-    p2Button.classList.toggle('disabled');
+    p1Button.classList.remove('disabled');
+    p2Button.classList.remove('disabled');
     p2Display.classList.remove('text-success');
     p1Display.classList.remove('text-danger');
     p1Display.classList.remove('text-success');
-        p2Display.classList.remove('text-danger');
+    p2Display.classList.remove('text-danger');
 };
 
 
