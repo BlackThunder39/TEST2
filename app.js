@@ -9,6 +9,9 @@ const p2Button= document.querySelector('#p2Button');
 const resetButton= document.querySelector('#reset');
 const resultDisplay= document.querySelector('#result');
 const winningScoreSelector= document.querySelector('#maxScore')
+const Form= document.querySelector('#input');
+const FormInput=document.querySelector('#inputValue');
+const alertSelector= document.querySelector('#alert');
 
 p1Button.addEventListener('click', function (){
     if(!isGameOver){
@@ -61,7 +64,19 @@ const reset = function (){
 resetButton.addEventListener('click', reset );
 
 winningScoreSelector.addEventListener('change',function (){
-    alert(`CHANGED TO ${this.value}`);
-    winningScore= parseInt(this.value); //since string recieved
+    if(this.value!=-1){
+        winningScore= parseInt(this.value); //since string recieved
+        Form.classList.add('invisible');
+        alertSelector.innerText=`Winning score set to ${winningScore}`;
+    }
+    else{
+        Form.classList.remove('invisible');
+    }
+    reset();
+})
+
+FormInput.addEventListener('change',function(){
+    winningScore= parseInt(this.value);
+    alertSelector.innerText=`Winning score set to ${winningScore}`;
     reset();
 })
